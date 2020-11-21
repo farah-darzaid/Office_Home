@@ -1,27 +1,39 @@
 #index-page {
-    .carousel-item{
-        background-position: center;
-        height: 900px;
-        width: 100%;
-        position: relative;
-        overflow: hidden;
+    .main-slider{
+        .carousel-item{
+            background-position: center;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
     }
-    .carousel-item:after{
-        content: "";
-        background-color: #fff;
-        display: block;
-        width: 120%;
-        height: 100px;
-        left: 0;
-        position: absolute;
-        right: 0;
-        bottom: -40px;
-        transform: rotate(-3deg);
+
+        .carousel-item:after{
+            content: "";
+            background-color: #fff;
+            display: block;
+            width: 120%;
+            height: 100px;
+            left: 0;
+            position: absolute;
+            right: 0;
+            bottom: -40px;
+            transform: rotate(-3deg);
+        }
     }
+
     .main-slider {
         width: 100%;
         height: 900px;
-        background: red;
+
+        .container{
+            position: absolute;;
+            top: 50%;
+
+            .row {
+                text-align: right;
+                margin: auto;
+            }
+        }
 
         .carousel-inner .carousel-item img {
             width: 100%;
@@ -32,6 +44,7 @@
             height: 45px;
         }
 
+
         .arrows {
             width: 60px;
             height: 75px;
@@ -39,6 +52,7 @@
             margin-left: -30px;
             bottom: 10%;
             left: 49%;
+            z-index: 10;
         }
         .arrows:hover{
             cursor: pointer;
@@ -72,6 +86,398 @@
             -webkit-animation-delay:0s; /* Safari 和 Chrome */
         }
 
+        .bs-slider{
+            overflow: hidden;
+            position: relative;
+        }
+
+
+        /********************
+        *****Slide effect
+        **********************/
+
+        .fade {
+            opacity: 1;
+        }
+        .fade .carousel-item {
+            top: 0;
+            z-index: 1;
+            opacity: 0;
+            width: 100%;
+            position: absolute;
+            left: 0 !important;
+            display: block !important;
+            -webkit-transition: opacity ease-in-out 1s;
+            -moz-transition: opacity ease-in-out 1s;
+            -ms-transition: opacity ease-in-out 1s;
+            -o-transition: opacity ease-in-out 1s;
+            transition: opacity ease-in-out 1s;
+        }
+        .fade .carousel-item:first-child {
+            top: auto;
+            position: relative;
+        }
+        .fade .carousel-item.active {
+            opacity: 1;
+            z-index: 2;
+            -webkit-transition: opacity ease-in-out 1s;
+            -moz-transition: opacity ease-in-out 1s;
+            -ms-transition: opacity ease-in-out 1s;
+            -o-transition: opacity ease-in-out 1s;
+            transition: opacity ease-in-out 1s;
+        }
+
+
+        /*---------- LEFT/RIGHT ROUND CONTROL ----------*/
+        .control-round .carousel-control {
+            top: 47%;
+            opacity: 0;
+            width: 45px;
+            height: 45px;
+            z-index: 100;
+            color: #ffffff;
+            display: block;
+            font-size: 24px;
+            cursor: pointer;
+            text-shadow: none;
+            position: absolute;
+            font-weight: normal;
+            background: transparent;
+            -webkit-border-radius: 100px;
+            border-radius: 100px;
+        }
+        .control-round:hover .carousel-control{
+            opacity: 1;
+            text-align: center;
+            .fa {
+                font-size: 75px;
+                font-weight: 100;
+            }
+        }
+        .control-round .carousel-control.left {
+            left: 2%;
+
+        }
+        .control-round .carousel-control.right {
+            right: 2%;
+        }
+
+        .first-text {
+            position: absolute;
+            top: 30%;
+            right: 35%;
+        }
+
+
     }
+    .services {
+        h1{
+            font-weight: 600;
+            border-bottom: 3px solid #98c93c;
+        }
+        .service-p {
+            font-size: 21px;
+        }
+        .service-desc {
+            .service-desc-p {
+                color: #5a5a5a;
+                font-size: 15px;
+            }
+            img{
+                height: 50%;
+                margin: auto;
+                border-radius: 50%;
+            }
+            h3{
+                font-weight: 600;
+            }
+            .dropdown-toggle {
+                background: #98c93c;
+                font-weight: 600;
+                border: none;
+            }
+        }
+    }
+    .about-us{
+        width: 100%;
+        background: url('https://1office.co/wp-content/uploads/2016/10/unnamed2.jpg') repeat fixed;
+        background-size: cover;
+        transform: skewY(-2deg);
+
+        .about {
+            width: 100%;
+            background: rgba(0,0,0,.5);
+            height: 100%;
+            color: #fff;
+            padding: 8% 0;
+
+            .row{
+                border: 10px double rgba(255,255,255,0.3);
+                transform: skewY(2deg);
+                padding: 5%;
+                border-collapse: separate;
+                border-spacing: 5px;
+
+                .line{
+                    background: #98c93c;
+                    width: 30%;
+                    height: 3px;
+                    display: block;
+                    margin-bottom: 4%;
+                }
+
+                .first-p {
+                    font-size: 20px;
+                }
+                .second-p,.third-p {
+                    font-size: 15px;
+                }
+                .third-p {
+                    color: #98c93c;
+                }
+            }
+            .icons {
+                .fas {
+                    margin: auto 5%;
+                    background: #98c93c;
+                    padding: 7%;
+                    border-radius: 50%;
+                    font-size: 25px;
+                }
+                .text {
+                    font-size: 24px;
+                    font-weight: 600;
+                    h1{
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+    .features {
+        margin-top: 5%;
+        .line {
+            background: #98c93c;
+            display: block;
+            margin-top: 2%;
+            width: 15%;
+            height: 3px;
+            margin: auto;
+        }
+        .description{
+            h1{
+                font-size: 80px;
+                font-weight: 600;
+                color: rgba(51,51,51,0.25);
+            }
+            h4{
+                color: #98c93c;
+                font-weight: 600;
+            }
+            p {
+                color: #606060;
+            }
+        }
+    }
+    .offer-form {
+        margin-top: 6%;
+        background: url("https://1office.co/wp-content/uploads/2016/11/bg-row-41.jpg") fixed repeat 100%;
+        background-size: cover;
+        transform: skewY(-3deg);
+        width: 100%;
+
+        .form {
+            width: 100%;
+            background: rgba(0,0,0,.5);
+            height: 100%;
+            color: #fff;
+            padding: 4% 0;
+
+            .row {
+                border: 10px double rgba(255,255,255,0.3);
+                transform: skewY(3deg);
+                padding: 5%;
+                border-collapse: separate;
+                border-spacing: 5px;
+
+                .line{
+                    background: #98c93c;
+                    width: 35%;
+                    height: 3px;
+                    display: block;
+                    margin-bottom: 4%;
+                }
+                p{
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+                span {
+                    color: #98c93c;
+                    font-size: 16px;
+                }
+                .subscribe {
+                    .form-control {
+                        border-radius: 0;
+                    }
+                    .sub-btn {
+                        background: #98c93c;
+                        color: #fff;
+                        border-radius: 0;
+                        font-weight: 600;
+                    }
+                    ::placeholder{
+                        color: #B0B0B0;
+                    }
+                }
+
+            }
+        }
+    }
+    .testimonials {
+        width: 100%;
+        margin: 6% auto 5%;
+
+        .title {
+            h4 {
+                color: #98c93c;
+            }
+        }
+        .carousel-inner {
+            padding: 0px 8% !important;
+
+            .carousel-item {
+                img {
+                    border-radius: 50%;
+                    width: 70%;
+                }
+
+                ::after {
+                    display: none;
+                }
+
+                .article {
+                    vertical-align: middle;
+                }
+                h4 {
+                    font-weight: 600;
+                }
+                h5 {
+                    color: #98c93c;
+                }
+            }
+
+        }
+        .carousel-control-prev,.carousel-control-next {
+            height: 25%;
+            .fas {
+                font-size: 35px;
+                color: #999999;
+            }
+        }
+
+    }
+    .news-div {
+        width: 100%;
+        background: url("https://1office.co/wp-content/uploads/2013/03/7-005.jpg") fixed repeat 100%;
+        background-size: cover;
+        transform: skewY(-3deg);
+
+        .news {
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.5) ;
+            padding: 5%;
+            padding-bottom: 6%;
+            .content {
+                color: #fff;
+                border: 10px double rgba(255, 255, 255, 0.3);
+                transform: skewY(3deg);
+                border-spacing: 5px;
+                padding: 3% 0;
+
+                .line{
+                    background: #98c93c;
+                    width: 20%;
+                    height: 3px;
+                    display: block;
+                    margin: auto;
+                }
+
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                }
+                .desc {
+                    span{
+                        font-size: 19px;
+                        font-weight: 600;
+                        display: block;
+                    }
+                }
+                .desc:hover {
+                    color: #98c93c;
+                    transition: ease-in .3s;
+                }
+                .time {
+                    color: #98c93c;
+                }
+                .more {
+                    font-weight: 600;
+                    font-size: 16px;
+                }
+
+                .more:after {
+                    content: '';
+                    display: block;
+                    border-bottom: 2px solid #98c93c;
+                    width: 0;
+                    transition: .5s ease;
+                }
+
+                .more:hover:after {
+                    width: 30%;
+                }
+
+                .news-slider {
+                    .col-lg-4 {
+                        max-width: 33%;
+                    }
+                    .img-wrapper {
+                        overflow: hidden;
+                        height: 250px;
+                    }
+                    img {
+                        transition: 5s;
+                        height: 100%;
+                    }
+                    img:hover {
+                        transform: scale(1.5);
+                    }
+                }
+                .carousel-control-prev, .carousel-control-next {
+                    width : 5%;
+
+
+                }
+                .carousel-control-prev {
+                    left: -2%;
+                }
+                .carousel-control-next {
+                    right: -2%;
+                }
+            }
+
+        }
+        .white {
+            background: #1d2124;
+            width: 100%;
+            height: 100px;
+            transform: skewY(3deg);
+            bottom: -50px;
+            position: absolute;
+        }
+    }
+
+
 
 }

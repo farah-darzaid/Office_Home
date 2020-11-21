@@ -11,8 +11,8 @@
 
 
 </head>
-<body style="height: 2000px;">
-    @if(!request()->is('api/login'))
+<body style="font-family: sans-serif; background: #fff">
+    @if(!request()->is('login'))
         @include('layouts.navbar')
     @endif
 
@@ -20,7 +20,7 @@
         @yield('content')
 
     </div>
-    @if(!request()->is('api/login'))
+    @if(!request()->is('login'))
         @include('layouts.footer')
     @endif
 
@@ -39,18 +39,37 @@
                     scroll_start = $(this).scrollTop();
                     if (scroll_start > 10) {
                         $("#navbar").css('background-color', '#fff');
-                        $("#navbar").css('border-bottom', '2px solid #98c93c');
                         $("#logo").attr("src", "https://1office.co/wp-content/uploads/2017/11/logo_1office_GB_H.svg");
-                        $(".nav-link").css("color","#000");
+                        $("#navbar .nav-link").css("color","#000");
+
+                        $(".nav-link").hover(function() {
+                            $(this).css("color","#98c93c")
+                        } ,function() {
+                            $(this).css("color", "#000")
+                        });
+
                     } else {
                         $('#navbar').css('background-color', 'transparent');
-                        $("#navbar").css('border-bottom', 'none');
                         $("#logo").attr("src", "https://1office.co/wp-content/uploads/2017/10/logo_1office_GW_H.svg");
-                        $(".nav-link").css("color","#fff");
+                        $("#navbar .nav-link").css("color","#fff");
+                        $(".nav-link").hover(function() {
+                            $(this).css("color","#98c93c")
+                        } ,function() {
+                            $(this).css("color", "#fff")
+                        });
+
 
                     }
                 })
             }
+
+        });
+
+        $('#navbar .dropdown').hover(function() {
+            $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(200);
+
+        }, function() {
+            $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(200);
 
         });
     </script>

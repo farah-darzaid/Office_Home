@@ -124,5 +124,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="jquery-2.2.0" level="application" />
+    <orderEntry type="library" name="slick" level="application" />
+    <orderEntry type="library" name="jquery.touchSwipe" level="application" />
   </component>
 </module>

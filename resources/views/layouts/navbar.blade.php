@@ -1,7 +1,7 @@
 <nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
     <a class="navbar-brand" href="/">
-        <img src="https://1office.co/wp-content/uploads/2017/10/logo_1office_GW_H.svg" alt="NotFound" width="100%" height="50">
+        <img id="logo" src="https://1office.co/wp-content/uploads/2017/10/logo_1office_GW_H.svg" alt="NotFound" width="100%" height="50">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -49,18 +49,35 @@
                     <a class="dropdown-item" href="#">RU</a>
                 </div>
             </li>
+            @guest()
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" href="{{ route('login') }}">
                    LOGIN
                 </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+
             </li>
+            @else
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ \Illuminate\Support\Facades\Auth::user()->name }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#"><i class="fas fa-user-circle mr-2"></i>My Account</a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Settings</a>
+                        <a class="dropdown-item" href="#" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                            <i class="fas fa-sign-in-alt mr-2"></i> Logout
+                        </a>
+
+                        <form action="{{ route('logout') }}" method="POST" id="logout-form" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+            @endif
+
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-search"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -105,6 +122,8 @@
     </div>
     </div>
 </nav>
+
+
 
 
 

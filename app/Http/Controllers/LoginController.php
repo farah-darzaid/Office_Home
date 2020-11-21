@@ -36,10 +36,10 @@ class LoginController extends Controller
         return redirect()->back()->with(['errors' =>'Wrong email or password']);
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
-        $request->user()->token()->revoke();
+        Auth::logout();
 
-        return redirect()->back();
+        return redirect('/');
     }
 }
