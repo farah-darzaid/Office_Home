@@ -21,3 +21,7 @@ Route::post('/logout','LoginController@logout')->name('logout');
 Route::get('login','LoginController@loginPage')->name('login');
 Route::post('login','LoginController@login')->name('login');
 Route::get('forget','LoginController@forgetPage')->name('forget');
+
+//facebook login
+Route::get('login/{provider}','LoginController@redirectToProvider')->name('facebook');
+Route::get('login/{provider}/callback','LoginController@handleProvider');

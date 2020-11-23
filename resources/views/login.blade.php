@@ -64,9 +64,12 @@
                         </div>
                         <x-alert/>
                         <div class="card-body">
-                            <button class="loginBtn loginBtn--facebook">
-                                Login with Facebook
-                            </button>
+                            <a href=" {{ route('facebook', 'facebook')}}">
+                                <button class="loginBtn loginBtn--facebook">
+                                    Login with Facebook
+                                </button>
+                            </a>
+
 
                             <button class="loginBtn loginBtn--google">
                                 Login with Google
