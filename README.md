@@ -66,4 +66,4 @@ Laravel development server started: http://127.0.0.1:8000
 
     * User     
       * Email: user@localhost.com
-      * Password: user123
+      * Password: user
